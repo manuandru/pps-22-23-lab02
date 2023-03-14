@@ -1,6 +1,6 @@
 package part3
 
-object e3 extends App:
+object e6 extends App:
 
 
   @annotation.tailrec
