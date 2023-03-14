@@ -9,17 +9,18 @@ object e7 extends App:
 
   object Shape:
     def perimeter(shape: Shape): Double = shape match
-      case Rectangle(b, h) => 2*(b+h)
+      case Rectangle(b, h) => 2 * (b + h)
       case Circle(r) => 2 * r * math.Pi
-      case Square(s) => 4*s
-
+      case Square(s) => 4 * s
+  
     def contains(shape: Shape, point: (Double, Double)): Boolean =
-      def absGreaterEquals(a: Double, b: Double)(c: Double, d: Double): Boolean = 
+      def absGreaterEquals(a: Double, b: Double)(c: Double, d: Double): Boolean =
         math.abs(a) >= math.abs(b) && math.abs(c) >= math.abs(d)
+  
       (shape, point) match
-      case (Rectangle(b, h), (x, y)) => absGreaterEquals(b/2, x)(h/2, y)
-      case (Circle(r), (x, y)) => absGreaterEquals(r, x)(r, y)
-      case (Square(s), (x, y)) => absGreaterEquals(s/2, x)(s/2, y)
+        case (Rectangle(b, h), (x, y)) => absGreaterEquals(b / 2, x)(h / 2, y)
+        case (Circle(r), (x, y)) => absGreaterEquals(r, x)(r, y)
+        case (Square(s), (x, y)) => absGreaterEquals(s / 2, x)(s / 2, y)
 
   import Shape.*
 
