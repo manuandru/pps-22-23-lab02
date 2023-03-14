@@ -33,3 +33,12 @@ object allParts extends App:
   
   // 5
   def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
+
+
+
+  // 6
+  @annotation.tailrec
+  def gcd(a: Int, b: Int): Int = (a, b) match
+    case (_, 0) => a
+    case _ if a > b => gcd(b, a % b)
+    case _ => gcd(b, a)
