@@ -1,6 +1,6 @@
 
 object allParts extends App:
-  
+
   // I've grouped solutions without tests
 
   // 3a
@@ -71,4 +71,19 @@ object allParts extends App:
 
 
   // 8
-  
+  enum Option[A]:
+    case Some(a: A)
+    case None()
+
+  object Option:
+    def filter[A](opt: Option[A])(p: A => Boolean): Option[A] = opt match
+      case Some(a) if p(a) => Some(a)
+      case _ => None()
+
+    def map[A, B](opt: Option[A])(f: A => B): Option[B] = opt match
+      case Some(a) => Some(f(a))
+      case _ => None()
+
+    def fold[A, B](opt: Option[A])(default: A)(f: A => B) = opt match
+      case Some(a) => f(a)
+      case _ => default
